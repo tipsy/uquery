@@ -1,0 +1,45 @@
+<head>
+    <script src="../dist/uq.js"></script>
+    <script src="../dist/uq-plugins.js"></script>
+</head>
+<body>
+<div class="pointlessDiv">
+    <h1 id="firstHeading1">Test</h1>
+    <div class="delegationDiv">
+        <h2 class="subHeading">Test</h2>
+    </div>
+    <h3 class="subHeading">Test</h3>
+    <h4 class="subHeading">Test</h4>
+    <input class="inputField" type="text">
+</div>
+</body>
+
+<script>
+
+    var h1 = document.getElementById("firstHeading1");
+
+    $(h1).on("click", function () {
+        console.log("Wrapped native JS element");
+    });
+
+    console.log("raw clientheight: " + $("h2").raw().clientHeight);
+
+    $("body").delegate(".delegationDiv", "click", function () {
+        console.log("Event delegated from body to .delegationDiv");
+    });
+
+    $(".subHeading").each(function (element) {
+        console.log(element);
+    });
+
+    $(".inputField").on("input", function () {
+        console.log(this.clientWidth);
+    }).on("mouseenter", function () {
+        console.log("mouse entered")
+    });
+
+    $(document).ready(function () {
+        console.log("Document is ready")
+    })
+
+</script>

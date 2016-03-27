@@ -1,0 +1,1 @@
+!function(){function n(n){[].push.apply(this,n.nodeType?[n]:document.querySelectorAll(n))}$=function(t){return new n(t)},$.prototype=n.prototype=$.fn={on:function(n,t){return this.each(function(e){e.addEventListener(n,t)})},each:function(n,t){return[].forEach.call(this,n,t),this},splice:[].splice}}();
