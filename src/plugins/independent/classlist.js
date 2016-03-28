@@ -19,3 +19,14 @@ $.fn.toggleClass = function (className) {
 $.fn.hasClass = function (className) {
     return this[0].classList.contains(className);
 };
+
+$.fn.addTempClass = function (className, duration, callback) {
+    var elements = this;
+    elements.addClass(className);
+    setTimeout(function () {
+        elements.removeClass(className);
+        if (callback instanceof Function) {
+            callback();
+        }
+    }, duration);
+};

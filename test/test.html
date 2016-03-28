@@ -40,6 +40,29 @@
 
     $(document).ready(function () {
         console.log("Document is ready")
-    })
+    });
+
+    $.ajax({
+        type: "GET",
+        url: "test-ajax.html",
+        done: function(data) {
+            console.log("done: " + data.response);
+        },
+        fail: function(data) {
+            console.log("fail: " + data.status);
+        }
+    });
+
+    $.ajax({
+        type: "GET",
+        url: "test-ajax.html",
+        fail: function(data) {
+            console.log("fail: " + data.status);
+        }
+    });
+
+    $.get("test-ajax.html", function(data) {
+        console.log("get done: " + data.status);
+    });
 
 </script>
